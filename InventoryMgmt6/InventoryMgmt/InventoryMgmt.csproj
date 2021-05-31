@@ -1,0 +1,1954 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1DD9FF0F-662E-4533-AB9D-623E17CBB0F1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InventoryMgmt</RootNamespace>
+    <AssemblyName>InventoryMgmt</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44338</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WinForms.v12.12.0.0.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\css\components.css" />
+    <Content Include="Content\assets\css\custom.css" />
+    <Content Include="Content\assets\css\reverse.css" />
+    <Content Include="Content\assets\css\rtl.css" />
+    <Content Include="Content\assets\css\skins\reverse.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-600.svg" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-700.svg" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-800.svg" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-regular.svg" />
+    <Content Include="Content\assets\fonts\vazir\font-face.css" />
+    <Content Include="Content\assets\fonts\vazir\sample.png" />
+    <Content Include="Content\assets\img\avatar\avatar-1.png" />
+    <Content Include="Content\assets\img\avatar\avatar-2.png" />
+    <Content Include="Content\assets\img\avatar\avatar-3.png" />
+    <Content Include="Content\assets\img\avatar\avatar-4.png" />
+    <Content Include="Content\assets\img\avatar\avatar-5.png" />
+    <Content Include="Content\assets\img\drawkit\drawkit-full-stack-man-colour.svg" />
+    <Content Include="Content\assets\img\drawkit\drawkit-mobile-article-colour.svg" />
+    <Content Include="Content\assets\img\drawkit\drawkit-nature-man-colour.svg" />
+    <Content Include="Content\assets\img\drawkit\revenue-graph-colour.svg" />
+    <Content Include="Content\assets\img\example-image-50.jpg" />
+    <Content Include="Content\assets\img\example-image.jpg" />
+    <Content Include="Content\assets\img\news\img01.jpg" />
+    <Content Include="Content\assets\img\news\img02.jpg" />
+    <Content Include="Content\assets\img\news\img03.jpg" />
+    <Content Include="Content\assets\img\news\img04.jpg" />
+    <Content Include="Content\assets\img\news\img05.jpg" />
+    <Content Include="Content\assets\img\news\img06.jpg" />
+    <Content Include="Content\assets\img\news\img07.jpg" />
+    <Content Include="Content\assets\img\news\img08.jpg" />
+    <Content Include="Content\assets\img\news\img09.jpg" />
+    <Content Include="Content\assets\img\news\img10.jpg" />
+    <Content Include="Content\assets\img\news\img11.jpg" />
+    <Content Include="Content\assets\img\news\img12.jpg" />
+    <Content Include="Content\assets\img\news\img13.jpg" />
+    <Content Include="Content\assets\img\news\img14.jpg" />
+    <Content Include="Content\assets\img\news\img15.jpg" />
+    <Content Include="Content\assets\img\news\img16.jpg" />
+    <Content Include="Content\assets\img\news\img17.jpg" />
+    <Content Include="Content\assets\img\p-250.png" />
+    <Content Include="Content\assets\img\p-50.png" />
+    <Content Include="Content\assets\img\products\product-1-50.png" />
+    <Content Include="Content\assets\img\products\product-1.jpg" />
+    <Content Include="Content\assets\img\products\product-2-50.png" />
+    <Content Include="Content\assets\img\products\product-2.jpg" />
+    <Content Include="Content\assets\img\products\product-3-50.png" />
+    <Content Include="Content\assets\img\products\product-3.jpg" />
+    <Content Include="Content\assets\img\products\product-4-50.png" />
+    <Content Include="Content\assets\img\products\product-4.jpg" />
+    <Content Include="Content\assets\img\products\product-5-50.png" />
+    <Content Include="Content\assets\img\products\product-5.jpg" />
+    <Content Include="Content\assets\img\stisla-fill.svg" />
+    <Content Include="Content\assets\img\stisla-light.svg" />
+    <Content Include="Content\assets\img\stisla-transparent.svg" />
+    <Content Include="Content\assets\img\stisla.svg" />
+    <Content Include="Content\assets\img\unsplash\andre-benz-1214056-unsplash.jpg" />
+    <Content Include="Content\assets\img\unsplash\eberhard-grossgasteiger-1207565-unsplash.jpg" />
+    <Content Include="Content\assets\img\unsplash\login-bg.jpg" />
+    <Content Include="Content\assets\js\custom.js" />
+    <Content Include="Content\assets\js\page\auth-register.js" />
+    <Content Include="Content\assets\js\page\bootstrap-modal.js" />
+    <Content Include="Content\assets\js\page\components-chat-box.js" />
+    <Content Include="Content\assets\js\page\components-multiple-upload.js" />
+    <Content Include="Content\assets\js\page\components-statistic.js" />
+    <Content Include="Content\assets\js\page\components-table.js" />
+    <Content Include="Content\assets\js\page\components-user.js" />
+    <Content Include="Content\assets\js\page\features-post-create.js" />
+    <Content Include="Content\assets\js\page\features-posts.js" />
+    <Content Include="Content\assets\js\page\features-setting-detail.js" />
+    <Content Include="Content\assets\js\page\forms-advanced-forms.js" />
+    <Content Include="Content\assets\js\page\gmaps-advanced-route.js" />
+    <Content Include="Content\assets\js\page\gmaps-draggable-marker.js" />
+    <Content Include="Content\assets\js\page\gmaps-geocoding.js" />
+    <Content Include="Content\assets\js\page\gmaps-geolocation.js" />
+    <Content Include="Content\assets\js\page\gmaps-marker.js" />
+    <Content Include="Content\assets\js\page\gmaps-multiple-marker.js" />
+    <Content Include="Content\assets\js\page\gmaps-route.js" />
+    <Content Include="Content\assets\js\page\gmaps-simple.js" />
+    <Content Include="Content\assets\js\page\index-0.js" />
+    <Content Include="Content\assets\js\page\index.js" />
+    <Content Include="Content\assets\js\page\modules-calendar.js" />
+    <Content Include="Content\assets\js\page\modules-chartjs.js" />
+    <Content Include="Content\assets\js\page\modules-datatables.js" />
+    <Content Include="Content\assets\js\page\modules-ion-icons.js" />
+    <Content Include="Content\assets\js\page\modules-slider.js" />
+    <Content Include="Content\assets\js\page\modules-sparkline.js" />
+    <Content Include="Content\assets\js\page\modules-sweetalert.js" />
+    <Content Include="Content\assets\js\page\modules-toastr.js" />
+    <Content Include="Content\assets\js\page\modules-vector-map.js" />
+    <Content Include="Content\assets\js\page\utilities-contact.js" />
+    <Content Include="Content\assets\js\scripts.js" />
+    <Content Include="Content\assets\js\stisla.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\components.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\node_modules\codemirror\addon\comment\comment.js" />
+    <Content Include="Content\node_modules\codemirror\addon\comment\continuecomment.js" />
+    <Content Include="Content\node_modules\codemirror\addon\dialog\dialog.css" />
+    <Content Include="Content\node_modules\codemirror\addon\dialog\dialog.js" />
+    <Content Include="Content\node_modules\codemirror\addon\display\autorefresh.js" />
+    <Content Include="Content\node_modules\codemirror\addon\display\fullscreen.css" />
+    <Content Include="Content\node_modules\codemirror\addon\display\fullscreen.js" />
+    <Content Include="Content\node_modules\codemirror\addon\display\panel.js" />
+    <Content Include="Content\node_modules\codemirror\addon\display\placeholder.js" />
+    <Content Include="Content\node_modules\codemirror\addon\display\rulers.js" />
+    <Content Include="Content\node_modules\codemirror\addon\edit\closebrackets.js" />
+    <Content Include="Content\node_modules\codemirror\addon\edit\closetag.js" />
+    <Content Include="Content\node_modules\codemirror\addon\edit\continuelist.js" />
+    <Content Include="Content\node_modules\codemirror\addon\edit\matchbrackets.js" />
+    <Content Include="Content\node_modules\codemirror\addon\edit\matchtags.js" />
+    <Content Include="Content\node_modules\codemirror\addon\edit\trailingspace.js" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\brace-fold.js" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\comment-fold.js" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\foldcode.js" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\foldgutter.css" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\foldgutter.js" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\indent-fold.js" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\markdown-fold.js" />
+    <Content Include="Content\node_modules\codemirror\addon\fold\xml-fold.js" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\anyword-hint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\css-hint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\html-hint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\javascript-hint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\show-hint.css" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\show-hint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\sql-hint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\hint\xml-hint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\coffeescript-lint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\css-lint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\html-lint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\javascript-lint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\json-lint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\lint.css" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\lint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\lint\yaml-lint.js" />
+    <Content Include="Content\node_modules\codemirror\addon\merge\merge.css" />
+    <Content Include="Content\node_modules\codemirror\addon\merge\merge.js" />
+    <Content Include="Content\node_modules\codemirror\addon\mode\loadmode.js" />
+    <Content Include="Content\node_modules\codemirror\addon\mode\multiplex.js" />
+    <Content Include="Content\node_modules\codemirror\addon\mode\multiplex_test.js" />
+    <Content Include="Content\node_modules\codemirror\addon\mode\overlay.js" />
+    <Content Include="Content\node_modules\codemirror\addon\mode\simple.js" />
+    <Content Include="Content\node_modules\codemirror\addon\runmode\colorize.js" />
+    <Content Include="Content\node_modules\codemirror\addon\runmode\runmode-standalone.js" />
+    <Content Include="Content\node_modules\codemirror\addon\runmode\runmode.js" />
+    <Content Include="Content\node_modules\codemirror\addon\runmode\runmode.node.js" />
+    <Content Include="Content\node_modules\codemirror\addon\scroll\annotatescrollbar.js" />
+    <Content Include="Content\node_modules\codemirror\addon\scroll\scrollpastend.js" />
+    <Content Include="Content\node_modules\codemirror\addon\scroll\simplescrollbars.css" />
+    <Content Include="Content\node_modules\codemirror\addon\scroll\simplescrollbars.js" />
+    <Content Include="Content\node_modules\codemirror\addon\search\jump-to-line.js" />
+    <Content Include="Content\node_modules\codemirror\addon\search\match-highlighter.js" />
+    <Content Include="Content\node_modules\codemirror\addon\search\matchesonscrollbar.css" />
+    <Content Include="Content\node_modules\codemirror\addon\search\matchesonscrollbar.js" />
+    <Content Include="Content\node_modules\codemirror\addon\search\search.js" />
+    <Content Include="Content\node_modules\codemirror\addon\search\searchcursor.js" />
+    <Content Include="Content\node_modules\codemirror\addon\selection\active-line.js" />
+    <Content Include="Content\node_modules\codemirror\addon\selection\mark-selection.js" />
+    <Content Include="Content\node_modules\codemirror\addon\selection\selection-pointer.js" />
+    <Content Include="Content\node_modules\codemirror\addon\tern\tern.css" />
+    <Content Include="Content\node_modules\codemirror\addon\tern\tern.js" />
+    <Content Include="Content\node_modules\codemirror\addon\tern\worker.js" />
+    <Content Include="Content\node_modules\codemirror\addon\wrap\hardwrap.js" />
+    <Content Include="Content\node_modules\codemirror\keymap\emacs.js" />
+    <Content Include="Content\node_modules\codemirror\keymap\sublime.js" />
+    <Content Include="Content\node_modules\codemirror\keymap\vim.js" />
+    <Content Include="Content\node_modules\codemirror\lib\codemirror.css" />
+    <Content Include="Content\node_modules\codemirror\lib\codemirror.js" />
+    <Content Include="Content\node_modules\codemirror\mode\apl\apl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\asciiarmor\asciiarmor.js" />
+    <Content Include="Content\node_modules\codemirror\mode\asn.1\asn.1.js" />
+    <Content Include="Content\node_modules\codemirror\mode\asterisk\asterisk.js" />
+    <Content Include="Content\node_modules\codemirror\mode\brainfuck\brainfuck.js" />
+    <Content Include="Content\node_modules\codemirror\mode\clike\clike.js" />
+    <Content Include="Content\node_modules\codemirror\mode\clojure\clojure.js" />
+    <Content Include="Content\node_modules\codemirror\mode\cmake\cmake.js" />
+    <Content Include="Content\node_modules\codemirror\mode\cobol\cobol.js" />
+    <Content Include="Content\node_modules\codemirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="Content\node_modules\codemirror\mode\commonlisp\commonlisp.js" />
+    <Content Include="Content\node_modules\codemirror\mode\crystal\crystal.js" />
+    <Content Include="Content\node_modules\codemirror\mode\css\css.js" />
+    <Content Include="Content\node_modules\codemirror\mode\cypher\cypher.js" />
+    <Content Include="Content\node_modules\codemirror\mode\dart\dart.js" />
+    <Content Include="Content\node_modules\codemirror\mode\diff\diff.js" />
+    <Content Include="Content\node_modules\codemirror\mode\django\django.js" />
+    <Content Include="Content\node_modules\codemirror\mode\dockerfile\dockerfile.js" />
+    <Content Include="Content\node_modules\codemirror\mode\dtd\dtd.js" />
+    <Content Include="Content\node_modules\codemirror\mode\dylan\dylan.js" />
+    <Content Include="Content\node_modules\codemirror\mode\d\d.js" />
+    <Content Include="Content\node_modules\codemirror\mode\ebnf\ebnf.js" />
+    <Content Include="Content\node_modules\codemirror\mode\ecl\ecl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\eiffel\eiffel.js" />
+    <Content Include="Content\node_modules\codemirror\mode\elm\elm.js" />
+    <Content Include="Content\node_modules\codemirror\mode\erlang\erlang.js" />
+    <Content Include="Content\node_modules\codemirror\mode\factor\factor.js" />
+    <Content Include="Content\node_modules\codemirror\mode\fcl\fcl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\forth\forth.js" />
+    <Content Include="Content\node_modules\codemirror\mode\fortran\fortran.js" />
+    <Content Include="Content\node_modules\codemirror\mode\gas\gas.js" />
+    <Content Include="Content\node_modules\codemirror\mode\gfm\gfm.js" />
+    <Content Include="Content\node_modules\codemirror\mode\gherkin\gherkin.js" />
+    <Content Include="Content\node_modules\codemirror\mode\go\go.js" />
+    <Content Include="Content\node_modules\codemirror\mode\groovy\groovy.js" />
+    <Content Include="Content\node_modules\codemirror\mode\haml\haml.js" />
+    <Content Include="Content\node_modules\codemirror\mode\handlebars\handlebars.js" />
+    <Content Include="Content\node_modules\codemirror\mode\haskell-literate\haskell-literate.js" />
+    <Content Include="Content\node_modules\codemirror\mode\haskell\haskell.js" />
+    <Content Include="Content\node_modules\codemirror\mode\haxe\haxe.js" />
+    <Content Include="Content\node_modules\codemirror\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="Content\node_modules\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="Content\node_modules\codemirror\mode\http\http.js" />
+    <Content Include="Content\node_modules\codemirror\mode\idl\idl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Content\node_modules\codemirror\mode\jinja2\jinja2.js" />
+    <Content Include="Content\node_modules\codemirror\mode\jsx\jsx.js" />
+    <Content Include="Content\node_modules\codemirror\mode\julia\julia.js" />
+    <Content Include="Content\node_modules\codemirror\mode\livescript\livescript.js" />
+    <Content Include="Content\node_modules\codemirror\mode\lua\lua.js" />
+    <Content Include="Content\node_modules\codemirror\mode\markdown\markdown.js" />
+    <Content Include="Content\node_modules\codemirror\mode\mathematica\mathematica.js" />
+    <Content Include="Content\node_modules\codemirror\mode\mbox\mbox.js" />
+    <Content Include="Content\node_modules\codemirror\mode\meta.js" />
+    <Content Include="Content\node_modules\codemirror\mode\mirc\mirc.js" />
+    <Content Include="Content\node_modules\codemirror\mode\mllike\mllike.js" />
+    <Content Include="Content\node_modules\codemirror\mode\modelica\modelica.js" />
+    <Content Include="Content\node_modules\codemirror\mode\mscgen\mscgen.js" />
+    <Content Include="Content\node_modules\codemirror\mode\mumps\mumps.js" />
+    <Content Include="Content\node_modules\codemirror\mode\nginx\nginx.js" />
+    <Content Include="Content\node_modules\codemirror\mode\nsis\nsis.js" />
+    <Content Include="Content\node_modules\codemirror\mode\ntriples\ntriples.js" />
+    <Content Include="Content\node_modules\codemirror\mode\octave\octave.js" />
+    <Content Include="Content\node_modules\codemirror\mode\oz\oz.js" />
+    <Content Include="Content\node_modules\codemirror\mode\pascal\pascal.js" />
+    <Content Include="Content\node_modules\codemirror\mode\pegjs\pegjs.js" />
+    <Content Include="Content\node_modules\codemirror\mode\perl\perl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\php\php.js" />
+    <Content Include="Content\node_modules\codemirror\mode\pig\pig.js" />
+    <Content Include="Content\node_modules\codemirror\mode\powershell\powershell.js" />
+    <Content Include="Content\node_modules\codemirror\mode\properties\properties.js" />
+    <Content Include="Content\node_modules\codemirror\mode\protobuf\protobuf.js" />
+    <Content Include="Content\node_modules\codemirror\mode\pug\pug.js" />
+    <Content Include="Content\node_modules\codemirror\mode\puppet\puppet.js" />
+    <Content Include="Content\node_modules\codemirror\mode\python\python.js" />
+    <Content Include="Content\node_modules\codemirror\mode\q\q.js" />
+    <Content Include="Content\node_modules\codemirror\mode\rpm\changes\index.html" />
+    <Content Include="Content\node_modules\codemirror\mode\rpm\rpm.js" />
+    <Content Include="Content\node_modules\codemirror\mode\rst\rst.js" />
+    <Content Include="Content\node_modules\codemirror\mode\ruby\ruby.js" />
+    <Content Include="Content\node_modules\codemirror\mode\rust\rust.js" />
+    <Content Include="Content\node_modules\codemirror\mode\r\r.js" />
+    <Content Include="Content\node_modules\codemirror\mode\sass\sass.js" />
+    <Content Include="Content\node_modules\codemirror\mode\sas\sas.js" />
+    <Content Include="Content\node_modules\codemirror\mode\scheme\scheme.js" />
+    <Content Include="Content\node_modules\codemirror\mode\shell\shell.js" />
+    <Content Include="Content\node_modules\codemirror\mode\sieve\sieve.js" />
+    <Content Include="Content\node_modules\codemirror\mode\slim\slim.js" />
+    <Content Include="Content\node_modules\codemirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="Content\node_modules\codemirror\mode\smarty\smarty.js" />
+    <Content Include="Content\node_modules\codemirror\mode\solr\solr.js" />
+    <Content Include="Content\node_modules\codemirror\mode\soy\soy.js" />
+    <Content Include="Content\node_modules\codemirror\mode\sparql\sparql.js" />
+    <Content Include="Content\node_modules\codemirror\mode\spreadsheet\spreadsheet.js" />
+    <Content Include="Content\node_modules\codemirror\mode\sql\sql.js" />
+    <Content Include="Content\node_modules\codemirror\mode\stex\stex.js" />
+    <Content Include="Content\node_modules\codemirror\mode\stylus\stylus.js" />
+    <Content Include="Content\node_modules\codemirror\mode\swift\swift.js" />
+    <Content Include="Content\node_modules\codemirror\mode\tcl\tcl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\textile\textile.js" />
+    <Content Include="Content\node_modules\codemirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="Content\node_modules\codemirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="Content\node_modules\codemirror\mode\tiki\tiki.css" />
+    <Content Include="Content\node_modules\codemirror\mode\tiki\tiki.js" />
+    <Content Include="Content\node_modules\codemirror\mode\toml\toml.js" />
+    <Content Include="Content\node_modules\codemirror\mode\tornado\tornado.js" />
+    <Content Include="Content\node_modules\codemirror\mode\troff\troff.js" />
+    <Content Include="Content\node_modules\codemirror\mode\ttcn-cfg\ttcn-cfg.js" />
+    <Content Include="Content\node_modules\codemirror\mode\ttcn\ttcn.js" />
+    <Content Include="Content\node_modules\codemirror\mode\turtle\turtle.js" />
+    <Content Include="Content\node_modules\codemirror\mode\twig\twig.js" />
+    <Content Include="Content\node_modules\codemirror\mode\vbscript\vbscript.js" />
+    <Content Include="Content\node_modules\codemirror\mode\vb\vb.js" />
+    <Content Include="Content\node_modules\codemirror\mode\velocity\velocity.js" />
+    <Content Include="Content\node_modules\codemirror\mode\verilog\verilog.js" />
+    <Content Include="Content\node_modules\codemirror\mode\vhdl\vhdl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\vue\vue.js" />
+    <Content Include="Content\node_modules\codemirror\mode\webidl\webidl.js" />
+    <Content Include="Content\node_modules\codemirror\mode\xml\xml.js" />
+    <Content Include="Content\node_modules\codemirror\mode\xquery\xquery.js" />
+    <Content Include="Content\node_modules\codemirror\mode\yacas\yacas.js" />
+    <Content Include="Content\node_modules\codemirror\mode\yaml-frontmatter\yaml-frontmatter.js" />
+    <Content Include="Content\node_modules\codemirror\mode\yaml\yaml.js" />
+    <Content Include="Content\node_modules\codemirror\mode\z80\z80.js" />
+    <Content Include="Content\node_modules\codemirror\rollup.config.js" />
+    <Content Include="Content\node_modules\codemirror\src\codemirror.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\Display.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\focus.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\gutters.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\highlight_worker.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\line_numbers.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\mode_state.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\operations.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\scrollbars.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\scrolling.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\scroll_events.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\selection.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\update_display.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\update_line.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\update_lines.js" />
+    <Content Include="Content\node_modules\codemirror\src\display\view_tracking.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\CodeMirror.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\commands.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\deleteNearSelection.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\drop_events.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\fromTextArea.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\global_events.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\key_events.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\legacy.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\main.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\methods.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\mouse_events.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\options.js" />
+    <Content Include="Content\node_modules\codemirror\src\edit\utils.js" />
+    <Content Include="Content\node_modules\codemirror\src\input\ContentEditableInput.js" />
+    <Content Include="Content\node_modules\codemirror\src\input\indent.js" />
+    <Content Include="Content\node_modules\codemirror\src\input\input.js" />
+    <Content Include="Content\node_modules\codemirror\src\input\keymap.js" />
+    <Content Include="Content\node_modules\codemirror\src\input\keynames.js" />
+    <Content Include="Content\node_modules\codemirror\src\input\movement.js" />
+    <Content Include="Content\node_modules\codemirror\src\input\TextareaInput.js" />
+    <Content Include="Content\node_modules\codemirror\src\line\highlight.js" />
+    <Content Include="Content\node_modules\codemirror\src\line\line_data.js" />
+    <Content Include="Content\node_modules\codemirror\src\line\pos.js" />
+    <Content Include="Content\node_modules\codemirror\src\line\saw_special_spans.js" />
+    <Content Include="Content\node_modules\codemirror\src\line\spans.js" />
+    <Content Include="Content\node_modules\codemirror\src\line\utils_line.js" />
+    <Content Include="Content\node_modules\codemirror\src\measurement\position_measurement.js" />
+    <Content Include="Content\node_modules\codemirror\src\measurement\widgets.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\changes.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\change_measurement.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\chunk.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\Doc.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\document_data.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\history.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\line_widget.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\mark_text.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\selection.js" />
+    <Content Include="Content\node_modules\codemirror\src\model\selection_updates.js" />
+    <Content Include="Content\node_modules\codemirror\src\modes.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\bidi.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\browser.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\dom.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\event.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\feature_detection.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\misc.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\operation_group.js" />
+    <Content Include="Content\node_modules\codemirror\src\util\StringStream.js" />
+    <Content Include="Content\node_modules\codemirror\theme\3024-day.css" />
+    <Content Include="Content\node_modules\codemirror\theme\3024-night.css" />
+    <Content Include="Content\node_modules\codemirror\theme\abcdef.css" />
+    <Content Include="Content\node_modules\codemirror\theme\ambiance-mobile.css" />
+    <Content Include="Content\node_modules\codemirror\theme\ambiance.css" />
+    <Content Include="Content\node_modules\codemirror\theme\base16-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\base16-light.css" />
+    <Content Include="Content\node_modules\codemirror\theme\bespin.css" />
+    <Content Include="Content\node_modules\codemirror\theme\blackboard.css" />
+    <Content Include="Content\node_modules\codemirror\theme\cobalt.css" />
+    <Content Include="Content\node_modules\codemirror\theme\colorforth.css" />
+    <Content Include="Content\node_modules\codemirror\theme\darcula.css" />
+    <Content Include="Content\node_modules\codemirror\theme\dracula.css" />
+    <Content Include="Content\node_modules\codemirror\theme\duotone-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\duotone-light.css" />
+    <Content Include="Content\node_modules\codemirror\theme\eclipse.css" />
+    <Content Include="Content\node_modules\codemirror\theme\elegant.css" />
+    <Content Include="Content\node_modules\codemirror\theme\erlang-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\gruvbox-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\hopscotch.css" />
+    <Content Include="Content\node_modules\codemirror\theme\icecoder.css" />
+    <Content Include="Content\node_modules\codemirror\theme\idea.css" />
+    <Content Include="Content\node_modules\codemirror\theme\isotope.css" />
+    <Content Include="Content\node_modules\codemirror\theme\lesser-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\liquibyte.css" />
+    <Content Include="Content\node_modules\codemirror\theme\lucario.css" />
+    <Content Include="Content\node_modules\codemirror\theme\material.css" />
+    <Content Include="Content\node_modules\codemirror\theme\mbo.css" />
+    <Content Include="Content\node_modules\codemirror\theme\mdn-like.css" />
+    <Content Include="Content\node_modules\codemirror\theme\midnight.css" />
+    <Content Include="Content\node_modules\codemirror\theme\monokai.css" />
+    <Content Include="Content\node_modules\codemirror\theme\neat.css" />
+    <Content Include="Content\node_modules\codemirror\theme\neo.css" />
+    <Content Include="Content\node_modules\codemirror\theme\night.css" />
+    <Content Include="Content\node_modules\codemirror\theme\nord.css" />
+    <Content Include="Content\node_modules\codemirror\theme\oceanic-next.css" />
+    <Content Include="Content\node_modules\codemirror\theme\panda-syntax.css" />
+    <Content Include="Content\node_modules\codemirror\theme\paraiso-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\paraiso-light.css" />
+    <Content Include="Content\node_modules\codemirror\theme\pastel-on-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\railscasts.css" />
+    <Content Include="Content\node_modules\codemirror\theme\rubyblue.css" />
+    <Content Include="Content\node_modules\codemirror\theme\seti.css" />
+    <Content Include="Content\node_modules\codemirror\theme\shadowfox.css" />
+    <Content Include="Content\node_modules\codemirror\theme\solarized.css" />
+    <Content Include="Content\node_modules\codemirror\theme\ssms.css" />
+    <Content Include="Content\node_modules\codemirror\theme\the-matrix.css" />
+    <Content Include="Content\node_modules\codemirror\theme\tomorrow-night-bright.css" />
+    <Content Include="Content\node_modules\codemirror\theme\tomorrow-night-eighties.css" />
+    <Content Include="Content\node_modules\codemirror\theme\ttcn.css" />
+    <Content Include="Content\node_modules\codemirror\theme\twilight.css" />
+    <Content Include="Content\node_modules\codemirror\theme\vibrant-ink.css" />
+    <Content Include="Content\node_modules\codemirror\theme\xq-dark.css" />
+    <Content Include="Content\node_modules\codemirror\theme\xq-light.css" />
+    <Content Include="Content\node_modules\codemirror\theme\yeti.css" />
+    <Content Include="Content\node_modules\codemirror\theme\yonce.css" />
+    <Content Include="Content\node_modules\codemirror\theme\zenburn.css" />
+    <Content Include="Content\node_modules\selectric\.gitattributes" />
+    <Content Include="Content\node_modules\selectric\gulpfile.js" />
+    <Content Include="Content\node_modules\selectric\karma.conf.js" />
+    <Content Include="Content\node_modules\selectric\public\ajax.html" />
+    <Content Include="Content\node_modules\selectric\public\customoptions.css" />
+    <Content Include="Content\node_modules\selectric\public\demo.html" />
+    <Content Include="Content\node_modules\selectric\public\favicon.ico" />
+    <Content Include="Content\node_modules\selectric\public\img\browser-icons.png" />
+    <Content Include="Content\node_modules\selectric\public\img\features-icons.png" />
+    <Content Include="Content\node_modules\selectric\public\img\header.jpg" />
+    <Content Include="Content\node_modules\selectric\public\img\icoDownload.png" />
+    <Content Include="Content\node_modules\selectric\public\img\icon.png" />
+    <Content Include="Content\node_modules\selectric\public\img\jquery.minicolors.png" />
+    <Content Include="Content\node_modules\selectric\public\index.html" />
+    <Content Include="Content\node_modules\selectric\public\jquery.selectric.js" />
+    <Content Include="Content\node_modules\selectric\public\jquery.selectric.min.js" />
+    <Content Include="Content\node_modules\selectric\public\lib\demo.js" />
+    <Content Include="Content\node_modules\selectric\public\lib\jquery-ui.min.js" />
+    <Content Include="Content\node_modules\selectric\public\lib\jquery.min.js" />
+    <Content Include="Content\node_modules\selectric\public\lib\jquery.minicolors.min.js" />
+    <Content Include="Content\node_modules\selectric\public\lib\prism.css" />
+    <Content Include="Content\node_modules\selectric\public\lib\prism.js" />
+    <Content Include="Content\node_modules\selectric\public\plugins\jquery.selectric.addNew.css" />
+    <Content Include="Content\node_modules\selectric\public\plugins\jquery.selectric.addNew.js" />
+    <Content Include="Content\node_modules\selectric\public\plugins\jquery.selectric.addNew.min.js" />
+    <Content Include="Content\node_modules\selectric\public\plugins\jquery.selectric.placeholder.js" />
+    <Content Include="Content\node_modules\selectric\public\plugins\jquery.selectric.placeholder.min.js" />
+    <Content Include="Content\node_modules\selectric\public\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\share.jpg" />
+    <Content Include="Content\node_modules\selectric\public\style.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\flat-dark-blue\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\flat-light-blue\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\flat-marsala\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\flat-radiant-orchid\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\flat-red\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\modern-v2\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\modern\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\plus\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\square\selectric.css" />
+    <Content Include="Content\node_modules\selectric\public\themes\template\selectric.css" />
+    <Content Include="Content\node_modules\selectric\src\jquery.selectric.js" />
+    <Content Include="Content\node_modules\selectric\src\plugins\jquery.selectric.addNew.js" />
+    <Content Include="Content\node_modules\selectric\src\plugins\jquery.selectric.placeholder.js" />
+    <Content Include="Content\node_modules\selectric\test\basic.spec.js" />
+    <Content Include="Content\node_modules\selectric\test\events.spec.js" />
+    <Content Include="Content\node_modules\selectric\test\fixtures\basic.html" />
+    <Content Include="Content\node_modules\selectric\test\fixtures\hidden.html" />
+    <Content Include="Content\node_modules\selectric\test\fixtures\multiple.html" />
+    <Content Include="Content\node_modules\selectric\test\fixtures\optgroup.html" />
+    <Content Include="Content\node_modules\selectric\test\fixtures\options.html" />
+    <Content Include="Content\node_modules\selectric\test\keyboard.spec.js" />
+    <Content Include="Content\node_modules\selectric\test\lib\jasmine-jquery.js" />
+    <Content Include="Content\node_modules\selectric\test\lib\keyvent.min.js" />
+    <Content Include="Content\node_modules\selectric\test\mobile.spec.js" />
+    <Content Include="Content\node_modules\selectric\test\multiple.spec.js" />
+    <Content Include="Content\node_modules\selectric\test\options.spec.js" />
+    <Content Include="Content\node_modules\selectric\test\visibility.spec.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\base.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\prettify.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\prettify.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\sort-arrow-sprite.png" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\sorter.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\Context.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\async.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\dom.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\env.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\func.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\key.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\lists.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\core\range.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\editing\Bullet.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\editing\History.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\editing\Style.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\editing\Table.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\editing\Typing.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\AirPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\AutoLink.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\AutoReplace.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\AutoSync.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Buttons.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Clipboard.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Codeview.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Dropzone.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Editor.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Fullscreen.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Handle.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\HelpDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\HintPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\ImageDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\ImagePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\LinkDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\LinkPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Placeholder.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Statusbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\TablePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\Toolbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\module\VideoDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\renderer.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\base\summernote-en-US.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\bs3\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\bs3\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\bs3\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\bs4\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\bs4\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\bs4\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\ui\DropdownUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\ui\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\ui\ModalUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\ui\PopoverUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\lite\ui\TooltipUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\src\js\summernote.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.0%29\html\test\unit\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\base.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\prettify.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\prettify.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\sort-arrow-sprite.png" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\sorter.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\Context.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\async.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\dom.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\env.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\func.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\key.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\lists.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\core\range.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Bullet.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\editing\History.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Style.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Table.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Typing.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\AirPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\AutoLink.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\AutoReplace.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\AutoSync.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Buttons.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Clipboard.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Codeview.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Dropzone.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Editor.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Fullscreen.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Handle.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\HelpDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\HintPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\ImageDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\ImagePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\LinkDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\LinkPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Placeholder.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Statusbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\TablePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\Toolbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\module\VideoDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\renderer.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\base\summernote-en-US.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\bs3\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\bs3\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\bs3\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\bs4\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\bs4\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\bs4\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\DropdownUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\ModalUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\PopoverUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\TooltipUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\src\js\summernote.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 0.0.0 %28Mac OS X 10.14.1%29\html\test\unit\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\base.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\prettify.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\prettify.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\sort-arrow-sprite.png" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\sorter.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\Context.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\async.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\dom.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\env.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\func.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\key.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\lists.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\core\range.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Bullet.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\editing\History.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Style.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Table.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\editing\Typing.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\AirPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\AutoLink.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\AutoReplace.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\AutoSync.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Buttons.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Clipboard.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Codeview.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Dropzone.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Editor.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Fullscreen.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Handle.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\HelpDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\HintPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\ImageDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\ImagePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\LinkDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\LinkPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Placeholder.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Statusbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\TablePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\Toolbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\module\VideoDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\renderer.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\base\summernote-en-US.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\bs3\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\bs3\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\bs3\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\bs4\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\bs4\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\bs4\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\DropdownUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\ModalUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\PopoverUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\lite\ui\TooltipUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\src\js\summernote.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 72.0.3626 %28Mac OS X 10.14.1%29\html\test\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\base.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\prettify.css" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\prettify.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\sort-arrow-sprite.png" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\sorter.js" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\Context.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\async.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\dom.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\env.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\func.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\key.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\lists.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\core\range.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\editing\Bullet.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\editing\History.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\editing\Style.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\editing\Table.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\editing\Typing.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\AirPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\AutoLink.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\AutoReplace.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\AutoSync.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Buttons.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Clipboard.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Codeview.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Dropzone.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Editor.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Fullscreen.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Handle.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\HelpDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\HintPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\ImageDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\ImagePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\LinkDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\LinkPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Placeholder.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Statusbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\TablePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\Toolbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\module\VideoDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\renderer.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\base\summernote-en-US.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\bs3\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\bs3\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\bs3\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\bs4\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\bs4\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\bs4\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\ui\DropdownUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\ui\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\ui\ModalUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\ui\PopoverUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\lite\ui\TooltipUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\src\js\summernote.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\HeadlessChrome 74.0.3729 %28Mac OS X 10.14.5%29\html\test\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\base.css" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\prettify.css" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\prettify.js" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\sort-arrow-sprite.png" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\sorter.js" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\Context.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\async.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\dom.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\env.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\func.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\key.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\lists.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\core\range.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\editing\Bullet.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\editing\History.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\editing\Style.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\editing\Table.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\editing\Typing.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\AirPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\AutoLink.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\AutoReplace.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\AutoSync.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Buttons.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Clipboard.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Codeview.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Dropzone.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Editor.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Fullscreen.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Handle.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\HelpDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\HintPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\ImageDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\ImagePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\LinkDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\LinkPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Placeholder.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Statusbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\TablePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\Toolbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\module\VideoDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\renderer.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\base\summernote-en-US.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\bs3\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\bs3\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\bs3\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\bs4\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\bs4\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\bs4\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\ui\DropdownUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\ui\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\ui\ModalUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\ui\PopoverUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\lite\ui\TooltipUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\src\js\summernote.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\AEditor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\Button.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\bs\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\bs\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\html\test\unit\bs\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\base.css" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\prettify.css" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\prettify.js" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\sort-arrow-sprite.png" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\sorter.js" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\Context.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\async.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\dom.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\env.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\func.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\key.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\lists.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\core\range.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\editing\Bullet.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\editing\History.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\editing\Style.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\editing\Table.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\editing\Typing.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\AirPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\AutoLink.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\AutoReplace.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\AutoSync.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Buttons.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Clipboard.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Codeview.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Dropzone.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Editor.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Fullscreen.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Handle.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\HelpDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\HintPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\ImageDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\ImagePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\LinkDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\LinkPopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Placeholder.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Statusbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\TablePopover.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\Toolbar.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\module\VideoDialog.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\renderer.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\base\summernote-en-US.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\bs3\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\bs3\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\bs3\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\bs4\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\bs4\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\bs4\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\settings.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\ui.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\ui\DropdownUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\ui\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\ui\ModalUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\ui\PopoverUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\lite\ui\TooltipUI.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\src\js\summernote.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\Context.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\core\dom.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\core\func.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\core\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\core\key.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\core\lists.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\core\range.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\editing\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\editing\style.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\editing\Table.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\editing\Typing.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\module\Buttons.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\module\Codeview.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\module\Editor.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\module\Fullscreen.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\module\index.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\module\LinkDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov-report\test\base\module\VideoDialog.spec.js.html" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ar-AR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ar-AR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-bg-BG.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-bg-BG.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ca-ES.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ca-ES.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-cs-CZ.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-cs-CZ.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-da-DK.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-da-DK.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-de-DE.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-de-DE.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-el-GR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-el-GR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-es-ES.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-es-ES.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-es-EU.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-es-EU.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-fa-IR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-fa-IR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-fi-FI.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-fi-FI.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-fr-FR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-fr-FR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-gl-ES.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-gl-ES.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-he-IL.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-he-IL.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-hr-HR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-hr-HR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-hu-HU.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-hu-HU.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-id-ID.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-id-ID.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-it-IT.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-it-IT.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ja-JP.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ja-JP.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ko-KR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ko-KR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-lt-LT.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-lt-LT.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-lt-LV.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-lt-LV.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-mn-MN.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-mn-MN.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-nb-NO.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-nb-NO.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-nl-NL.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-nl-NL.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-pl-PL.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-pl-PL.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-pt-BR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-pt-BR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-pt-PT.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-pt-PT.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ro-RO.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ro-RO.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ru-RU.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ru-RU.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sk-SK.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sk-SK.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sl-SI.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sl-SI.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sr-RS-Latin.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sr-RS-Latin.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sr-RS.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sr-RS.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sv-SE.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-sv-SE.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ta-IN.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-ta-IN.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-th-TH.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-th-TH.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-tr-TR.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-tr-TR.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-uk-UA.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-uk-UA.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-uz-UZ.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-uz-UZ.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-vi-VN.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-vi-VN.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-zh-CN.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-zh-CN.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-zh-TW.js" />
+    <Content Include="Content\node_modules\summernote\dist\lang\summernote-zh-TW.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-bs4.css" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-bs4.js" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-bs4.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-lite.css" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-lite.js" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-lite.min.js" />
+    <Content Include="Content\node_modules\summernote\dist\summernote.css" />
+    <Content Include="Content\node_modules\summernote\dist\summernote.js" />
+    <Content Include="Content\node_modules\summernote\dist\summernote.min.js" />
+    <Content Include="Content\node_modules\summernote\examples\airmode.html" />
+    <Content Include="Content\node_modules\summernote\examples\bs2.html" />
+    <Content Include="Content\node_modules\summernote\examples\bs3.html" />
+    <Content Include="Content\node_modules\summernote\examples\bs4.html" />
+    <Content Include="Content\node_modules\summernote\examples\codemirror.html" />
+    <Content Include="Content\node_modules\summernote\examples\codeview-filter.html" />
+    <Content Include="Content\node_modules\summernote\examples\custom-style.html" />
+    <Content Include="Content\node_modules\summernote\examples\example.css" />
+    <Content Include="Content\node_modules\summernote\examples\external-api.html" />
+    <Content Include="Content\node_modules\summernote\examples\hint-emoji.html" />
+    <Content Include="Content\node_modules\summernote\examples\hint-symbols_mathematical-symbols_Greek-letters.html" />
+    <Content Include="Content\node_modules\summernote\examples\hint-userdefine.html" />
+    <Content Include="Content\node_modules\summernote\examples\ie8.html" />
+    <Content Include="Content\node_modules\summernote\examples\jquery-custom-event.html" />
+    <Content Include="Content\node_modules\summernote\examples\lang.html" />
+    <Content Include="Content\node_modules\summernote\examples\link-blank.html" />
+    <Content Include="Content\node_modules\summernote\examples\lite.html" />
+    <Content Include="Content\node_modules\summernote\examples\ondialog-multitab.html" />
+    <Content Include="Content\node_modules\summernote\examples\ondialog.html" />
+    <Content Include="Content\node_modules\summernote\examples\placeholder.html" />
+    <Content Include="Content\node_modules\summernote\examples\plugin-hello.html" />
+    <Content Include="Content\node_modules\summernote\examples\textarea.html" />
+    <Content Include="Content\node_modules\summernote\examples\toolbar-container.html" />
+    <Content Include="Content\node_modules\summernote\examples\with-google-font.html" />
+    <Content Include="Content\node_modules\summernote\index.html" />
+    <Content Include="Content\node_modules\summernote\karma.ci.conf.js" />
+    <Content Include="Content\node_modules\summernote\karma.conf.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-ar-AR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-bg-BG.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-ca-ES.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-cs-CZ.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-da-DK.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-de-DE.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-el-GR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-es-ES.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-es-EU.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-fa-IR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-fi-FI.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-fr-FR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-gl-ES.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-he-IL.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-hr-HR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-hu-HU.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-id-ID.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-it-IT.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-ja-JP.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-ko-KR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-lt-LT.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-lt-LV.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-mn-MN.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-nb-NO.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-nl-NL.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-pl-PL.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-pt-BR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-pt-PT.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-ro-RO.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-ru-RU.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-sk-SK.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-sl-SI.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-sr-RS-Latin.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-sr-RS.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-sv-SE.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-ta-IN.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-th-TH.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-tr-TR.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-uk-UA.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-uz-UZ.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-vi-VN.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-zh-CN.js" />
+    <Content Include="Content\node_modules\summernote\lang\summernote-zh-TW.js" />
+    <Content Include="Content\node_modules\summernote\plugin\databasic\summernote-ext-databasic.css" />
+    <Content Include="Content\node_modules\summernote\plugin\databasic\summernote-ext-databasic.js" />
+    <Content Include="Content\node_modules\summernote\plugin\hello\summernote-ext-hello.js" />
+    <Content Include="Content\node_modules\summernote\plugin\specialchars\summernote-ext-specialchars.js" />
+    <Content Include="Content\node_modules\summernote\src\icons\align-center.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\align-indent.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\align-justify.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\align-left.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\align-outdent.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\align-right.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\align.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\arrow-circle-down.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\arrow-circle-left.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\arrow-circle-right.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\arrow-circle-up.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\arrows-alt.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\arrows-h.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\arrows-v.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\bold.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\caret.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\chain-broken.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\circle.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\close.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\code.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\col-after.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\col-before.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\col-remove.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\dist\summernote.html" />
+    <Content Include="Content\node_modules\summernote\src\icons\eraser.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\float-left.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\float-none.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\float-right.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\font.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\frame.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\italic.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\link.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\magic.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\menu-check.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\minus.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\orderedlist.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\pencil.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\picture.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\question.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\redo.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\rollback.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\row-above.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\row-below.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\row-remove.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\special-character.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\square.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\strikethrough.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\subscript.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\summernote.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\superscript.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\table.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\templates\summernote.css" />
+    <Content Include="Content\node_modules\summernote\src\icons\text-height.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\trash.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\underline.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\undo.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\unorderedlist.svg" />
+    <Content Include="Content\node_modules\summernote\src\icons\video.svg" />
+    <Content Include="Content\node_modules\summernote\src\js\base\Context.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\core\async.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\core\dom.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\core\env.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\core\func.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\core\key.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\core\lists.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\core\range.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\editing\Bullet.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\editing\History.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\editing\Style.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\editing\Table.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\editing\Typing.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\AirPopover.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\AutoLink.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\AutoReplace.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\AutoSync.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Buttons.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Clipboard.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Codeview.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Dropzone.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Editor.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Fullscreen.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Handle.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\HelpDialog.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\HintPopover.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\ImageDialog.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\ImagePopover.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\LinkDialog.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\LinkPopover.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Placeholder.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Statusbar.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\TablePopover.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\Toolbar.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\module\VideoDialog.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\renderer.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\settings.js" />
+    <Content Include="Content\node_modules\summernote\src\js\base\summernote-en-US.js" />
+    <Content Include="Content\node_modules\summernote\src\js\bs3\settings.js" />
+    <Content Include="Content\node_modules\summernote\src\js\bs3\ui.js" />
+    <Content Include="Content\node_modules\summernote\src\js\bs4\settings.js" />
+    <Content Include="Content\node_modules\summernote\src\js\bs4\ui.js" />
+    <Content Include="Content\node_modules\summernote\src\js\lite\settings.js" />
+    <Content Include="Content\node_modules\summernote\src\js\lite\ui.js" />
+    <Content Include="Content\node_modules\summernote\src\js\lite\ui\DropdownUI.js" />
+    <Content Include="Content\node_modules\summernote\src\js\lite\ui\ModalUI.js" />
+    <Content Include="Content\node_modules\summernote\src\js\lite\ui\PopoverUI.js" />
+    <Content Include="Content\node_modules\summernote\src\js\lite\ui\TooltipUI.js" />
+    <Content Include="Content\node_modules\summernote\src\js\summernote.js" />
+    <Content Include="Content\reverse.css" />
+    <Content Include="Content\rtl.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Models\InventoryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InventoryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\InventoryModel.edmx.diagram">
+      <DependentUpon>InventoryModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\components.css.map" />
+    <Content Include="Content\custom.css.map" />
+    <Content Include="Content\style.css.map" />
+    <Content Include="Content\assets\css\components.css.map" />
+    <Content Include="Content\assets\css\custom.css.map" />
+    <Content Include="Content\assets\css\skins\reverse.css.map" />
+    <Content Include="Content\assets\css\style.css.map" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-600.eot" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-600.ttf" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-600.woff" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-600.woff2" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-700.eot" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-700.ttf" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-700.woff" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-700.woff2" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-800.eot" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-800.ttf" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-800.woff" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-800.woff2" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-regular.eot" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-regular.ttf" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-regular.woff" />
+    <Content Include="Content\assets\fonts\nunito-v9-latin-regular.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-FD.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-FD.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-FD.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-FD.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.eot" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.woff" />
+    <Content Include="Content\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.woff2" />
+    <Content Include="Content\assets\fonts\vazir\LICENSE" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Black.eot" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Black.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Black.woff" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Black.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Bold.eot" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Bold.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Bold.woff" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Bold.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Light.eot" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Light.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Light.woff" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Light.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Medium.eot" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Medium.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Medium.woff" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Medium.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Thin.eot" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Thin.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Thin.woff" />
+    <Content Include="Content\assets\fonts\vazir\Vazir-Thin.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Vazir.eot" />
+    <Content Include="Content\assets\fonts\vazir\Vazir.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Vazir.woff" />
+    <Content Include="Content\assets\fonts\vazir\Vazir.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.woff2" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-WOL.eot" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-WOL.ttf" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-WOL.woff" />
+    <Content Include="Content\assets\fonts\vazir\Without-Latin\Vazir-WOL.woff2" />
+    <Content Include="Content\node_modules\summernote\.DS_Store" />
+    <Content Include="Content\node_modules\summernote\.editorconfig" />
+    <Content Include="Content\node_modules\summernote\.eslintrc" />
+    <Content Include="Content\node_modules\summernote\.github\CODE_OF_CONDUCT.md" />
+    <Content Include="Content\node_modules\summernote\.github\CONTRIBUTING.md" />
+    <Content Include="Content\node_modules\summernote\.github\ISSUE_TEMPLATE.md" />
+    <Content Include="Content\node_modules\summernote\.github\PULL_REQUEST_TEMPLATE.md" />
+    <Content Include="Content\node_modules\summernote\coverage\PhantomJS 2.1.1 %28Mac OS X 0.0.0%29\lcov.info" />
+    <Content Include="Content\node_modules\summernote\dist\font\summernote.eot" />
+    <Content Include="Content\node_modules\summernote\dist\font\summernote.ttf" />
+    <Content Include="Content\node_modules\summernote\dist\font\summernote.woff" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-0.8.12-dist.zip" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-bs4.js.map" />
+    <Content Include="Content\node_modules\summernote\dist\summernote-lite.js.map" />
+    <Content Include="Content\node_modules\summernote\dist\summernote.js.map" />
+    <Content Include="Content\node_modules\summernote\examples\symbols_mathematical-symbols_Greek-letters.json" />
+    <Content Include="Content\node_modules\summernote\LICENSE" />
+    <Content Include="Content\node_modules\summernote\package.json" />
+    <Content Include="Content\node_modules\summernote\README.md" />
+    <Content Include="Content\node_modules\summernote\src\.DS_Store" />
+    <Content Include="Content\node_modules\summernote\src\icons\.DS_Store" />
+    <Content Include="Content\node_modules\summernote\src\icons\dist\.DS_Store" />
+    <Content Include="Content\node_modules\summernote\src\icons\dist\font\summernote.eot" />
+    <Content Include="Content\node_modules\summernote\src\icons\dist\font\summernote.ttf" />
+    <Content Include="Content\node_modules\summernote\src\icons\dist\font\summernote.woff" />
+    <Content Include="Content\node_modules\summernote\src\icons\dist\summernote.less" />
+    <Content Include="Content\node_modules\summernote\src\icons\dist\_summernote.scss" />
+    <Content Include="Content\node_modules\summernote\src\icons\templates\summernote.json" />
+    <Content Include="Content\node_modules\summernote\src\less\elements.less" />
+    <Content Include="Content\node_modules\summernote\src\less\elements.scss" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\all.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\btn-group.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\buttons.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\common.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\dropdown.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\form.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\mixins.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\mixins\buttons.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\modal.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\popover.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\toolbar.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\tooltip.less" />
+    <Content Include="Content\node_modules\summernote\src\less\lite-ui\variables.less" />
+    <Content Include="Content\node_modules\summernote\src\less\summernote-bs4.less" />
+    <Content Include="Content\node_modules\summernote\src\less\summernote-bs4.scss" />
+    <Content Include="Content\node_modules\summernote\src\less\summernote-lite.less" />
+    <Content Include="Content\node_modules\summernote\src\less\summernote.less" />
+    <Content Include="Content\node_modules\summernote\src\less\summernote.scss" />
+    <Content Include="Content\node_modules\summernote\tsconfig.json" />
+    <Content Include="Content\node_modules\codemirror\AUTHORS" />
+    <Content Include="Content\node_modules\codemirror\bin\source-highlight" />
+    <Content Include="Content\node_modules\codemirror\CHANGELOG.md" />
+    <Content Include="Content\node_modules\codemirror\CONTRIBUTING.md" />
+    <Content Include="Content\node_modules\codemirror\LICENSE" />
+    <Content Include="Content\node_modules\codemirror\package.json" />
+    <Content Include="Content\node_modules\codemirror\README.md" />
+    <Content Include="Content\node_modules\selectric\.editorconfig" />
+    <Content Include="Content\node_modules\selectric\.eslintrc" />
+    <Content Include="Content\node_modules\selectric\.npmignore" />
+    <Content Include="Content\node_modules\selectric\.travis.yml" />
+    <Content Include="Content\node_modules\selectric\bower.json" />
+    <Content Include="Content\node_modules\selectric\LICENSE" />
+    <Content Include="Content\node_modules\selectric\package.json" />
+    <Content Include="Content\node_modules\selectric\public\CNAME" />
+    <Content Include="Content\node_modules\selectric\README.md" />
+    <Content Include="Content\node_modules\selectric\selectric.jquery.json" />
+    <Content Include="Content\node_modules\selectric\selectric_v1.13.0.zip" />
+    <Content Include="Content\node_modules\selectric\src\plugins\jquery.selectric.addNew.scss" />
+    <Content Include="Content\node_modules\selectric\src\selectric.scss" />
+    <Content Include="Content\node_modules\selectric\src\themes\flat-dark-blue\selectric.scss" />
+    <Content Include="Content\node_modules\selectric\src\themes\flat-light-blue\selectric.scss" />
+    <Content Include="Content\node_modules\selectric\src\themes\flat-marsala\selectric.scss" />
+    <Content Include="Content\node_modules\selectric\src\themes\flat-radiant-orchid\selectric.scss" />
+    <Content Include="Content\node_modules\selectric\src\themes\flat-red\selectric.scss" />
+    <EntityDeploy Include="Models\OrderModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OrderModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\OrderModel.edmx.diagram">
+      <DependentUpon>OrderModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="ReportModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReportModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ReportModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReportModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReportModel.edmx.diagram">
+      <DependentUpon>ReportModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Report\Report.rdlc" />
+    <Content Include="InventoryDataSet1.xsc">
+      <DependentUpon>InventoryDataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="InventoryDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventoryDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="InventoryDataSet1.xss">
+      <DependentUpon>InventoryDataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="OrdersDataSet.xsc">
+      <DependentUpon>OrdersDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="OrderDataSet.xsc">
+      <DependentUpon>OrderDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="OrderDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrderDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="OrderDataSet.xss">
+      <DependentUpon>OrderDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="OrdersDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrdersDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="OrdersDataSet.xss">
+      <DependentUpon>OrdersDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Models\InventoryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InventoryModel.edmx</DependentUpon>
+      <LastGenOutput>InventoryModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\InventoryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InventoryModel.edmx</DependentUpon>
+      <LastGenOutput>InventoryModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\OrderModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderModel.edmx</DependentUpon>
+      <LastGenOutput>OrderModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\OrderModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OrderModel.edmx</DependentUpon>
+      <LastGenOutput>OrderModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="ReportModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReportModel1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="UsersModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UsersModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UsersModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UsersModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="InventoryDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetInventory_Result.cs">
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GetOrders_Result.cs">
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Inventory.cs">
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InventoryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InventoryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InventoryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Membership.cs" />
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PurchaseModel.cs" />
+    <Compile Include="Models\Supplier.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrdersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportModel.cs" />
+    <Compile Include="ReportModel.Designer.cs">
+      <DependentUpon>ReportModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ReportModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>UsersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersModel.Designer.cs">
+      <DependentUpon>UsersModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersModel1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Inventory\Create.cshtml" />
+    <Content Include="Views\Inventory\Delete.cshtml" />
+    <Content Include="Views\Inventory\Details.cshtml" />
+    <Content Include="Views\Inventory\Edit.cshtml" />
+    <Content Include="Views\Inventory\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Purchase\Create.cshtml" />
+    <Content Include="Views\Purchase\Delete.cshtml" />
+    <Content Include="Views\Purchase\Edit.cshtml" />
+    <Content Include="Views\Purchase\Index.cshtml" />
+    <EntityDeploy Include="UsersModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UsersModel1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="UsersModel.edmx.diagram">
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Signup.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\ReportData.rdlc" />
+    <EmbeddedResource Include="Report\ReportOrders.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62953</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44338/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

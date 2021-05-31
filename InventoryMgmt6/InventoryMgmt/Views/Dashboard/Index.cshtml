@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>General Dashboard &mdash; Inventory</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/jqvmap/dist/jqvmap.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/weathericons/css/weather-icons.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/weathericons/css/weather-icons-wind.min.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/summernote/dist/summernote-bs4.css")>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/style.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/assets/css/components.css")>
+</head>
+
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <ul class="navbar-nav navbar-right" style="margin-left:1000px">                    
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src=@Url.Content("/Content/assets/img/avatar/avatar-1.png") class="rounded-circle mr-1">
+                            <div class="d-sm-none d-lg-inline-block">Hi, user</div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="@Url.Action("Logout", "Login")" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="#">Inventory Management</a>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Navigation</li>
+                        <li><a class="nav-link" href="~/Dashboard/Index"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
+                        <li><a class="nav-link" href="~/Orders/Index"><i class="fas fa-truck"></i> <span>Order</span></a></li>
+                        <li><a class="nav-link" href="~/Purchase/Index"><i class="fas fa-money-bill-wave"></i> <span>Purchase</span></a></li>
+                        <li><a class="nav-link" href="~/Inventory/Index"><i class="fas fa-dolly-flatbed"></i> <span>Inventory</span></a></li>
+                        <li><a class="nav-link" href="~/Suppliers/Index"><i class="fas fa-parachute-box"></i> <span>Supplier</span></a></li>
+                        <li><a class="nav-link" href="~/Users/Index"><i class="fas fa-users"></i> <span>Users</span></a></li>
+                    </ul>
+                </aside>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-primary">
+                                    <i class="far fa-user"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Total Karyawan</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="~/Users/Index" class="small-box-footer">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-danger">
+                                    <i class="far fa-newspaper"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Jumlah Orderan</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="~/Orders/Index" class="small-box-footer">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-warning">
+                                    <i class="far fa-file"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Jenis Barang</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="~/Inventory/Index" class="small-box-footer">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="card card-statistic-1">
+                                <div class="card-icon bg-success">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="card-wrap">
+                                    <div class="card-header">
+                                        <h4>Jumlah Supplier</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="~/Suppliers/Index" class="small-box-footer">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="row">
+            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Statistics</h4>
+                        <div class="card-header-action">
+                            <div class="btn-group">
+                                <a href="#" class="btn">Week</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+                    <div id="ml_d92fe614"><div style="padding:0;margin:0;" id="ml_d92fe614_i" v='1.1' a='{"t":"g","lang":"en","ids":["6201","2371","6192","6203","6222","2186","2178"],"a_c":"#FFFFFF","a_itm_bg":"#0097A7","p_w":300,"p_cr":4}'></div><div id="ml_d92fe614_c" style="padding:0;margin:0;padding:7px 5px;"><img src="https://cuacalab.id/assets/img/logo_z_b.svg" style="width:15px;opacity:0.7;margin-right:5px;position:relative;top:1px;display:inline-block;"><a href="https://cuacalab.id/" style="color:grey;font-size:12px;text-decoration:none;" target="_blank" id="ml_d92fe614_u">Weather</a></div></div>
+                    <script async src="https://app.cuacalab.id/js/?id=ml_d92fe614"></script>
+                </section>
+            </div>
+            <footer class="main-footer">
+                <div class="footer-left">
+                    Copyright &copy; 2021
+                </div>
+                <div class="footer-right">
+                    2.3.0
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- General JS Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src=@Url.Content("/Content/assets/js/stisla.js")></script>
+
+    <!-- JS Libraies -->
+    <script src=@Url.Content("/Content/node_modules/simpleweather/jquery.simpleWeather.min.js")></script>
+    <script src=@Url.Content("/Content/node_modules/chart.js/dist/Chart.min.js")></script>
+    <script src=@Url.Content("/Content/node_modules/jqvmap/dist/jquery.vmap.min.js")></script>
+    <script src=@Url.Content("/Content/node_modules/jqvmap/dist/maps/jquery.vmap.world.js")></script>
+    <script src=@Url.Content("/Content/node_modules/summernote/dist/summernote-bs4.js")></script>
+    <script src=@Url.Content("/Content/node_modules/chocolat/dist/js/jquery.chocolat.min.js")></script>
+
+    <!-- Template JS File -->
+    <script src=@Url.Content("/Content/assets/js/scripts.js")></script>
+    <script src=@Url.Content("/Content/assets/js/custom.js")></script>
+
+    <!-- Page Specific JS File -->
+    <script src=@Url.Content("/Content/assets/js/page/index-0.js")></script>
+</body>
+</html>
+

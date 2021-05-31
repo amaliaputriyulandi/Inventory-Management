@@ -1,0 +1,154 @@
+﻿@model InventoryMgmt.Models.Inventory
+
+@{
+    ViewBag.Title = "Create";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/summernote/dist/summernote-bs4.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/codemirror/lib/codemirror.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/codemirror/theme/duotone-dark.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/node_modules/selectric/public/selectric.css")>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href=@Url.Content("/Content/style.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/components.css")>
+
+</head>
+
+
+
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <!-- Header -->
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+
+                <ul class="navbar-nav navbar-right" style="margin-left:1000px">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <img alt="image" src=@Url.Content("/Content/assets/img/avatar/avatar-1.png") class="rounded-circle mr-1">
+                            <div class="d-sm-none d-lg-inline-block">Hi, user</div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="@Url.Action("Logout", "Login")" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!--  -->
+            <!-- Sidebar -->
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="#">Inventory Management</a>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Navigation</li>
+                        <li><a class="nav-link" href="~/Dashboard/Index"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
+                        <li><a class="nav-link" href="~/Orders/Index"><i class="fas fa-truck"></i> <span>Order</span></a></li>
+                        <li><a class="nav-link" href="~/Purchase/Index"><i class="fas fa-money-bill-wave"></i> <span>Purchase</span></a></li>
+                        <li><a class="nav-link" href="~/Inventory/Index"><i class="fas fa-dolly-flatbed"></i> <span>Inventory</span></a></li>
+                        <li><a class="nav-link" href="~/Suppliers/Index"><i class="fas fa-parachute-box"></i> <span>Supplier</span></a></li>
+                        @*<li><a class="nav-link" href="~/Report/Index"><i class="far fa-square"></i> <span>Report</span></a></li>*@
+                        <li><a class="nav-link" href="~/Users/Index"><i class="fas fa-users"></i> <span>Users</span></a></li>
+                    </ul>
+                </aside>
+            </div>
+            <!--  -->
+            <!-- Main Content / Body -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="section-header">
+                        <h1>Create</h1>
+                    </div>
+                    <div class="section-body">
+
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-horizontal">
+                                                <h4>Inventory</h4>
+                                                <hr />
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Nama, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.Nama, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Nama, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Harga, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.Harga, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Harga, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" value="Create" class="btn btn-primary"  />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <p style="color:red;">
+                                            @Html.Label("", Convert.ToString((string)ViewBag.Duplicate))
+                                        </p>
+
+                                        <div>
+                                            @Html.ActionLink("Back to List", "Index")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <footer class="main-footer">
+                <div class="footer-left">
+                    Copyright &copy; 2021 <div class="bullet"></div>
+                </div>
+                <div class="footer-right">
+                    2.3.0
+                </div>
+            </footer>
+            <!--  -->
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src=@Url.Content("https://code.jquery.com/jquery-3.3.1.min.js") integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src=@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js") integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src=@Url.Content("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js") integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src=@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js")></script>
+    <script src=@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js")></script>
+    <script src=@Url.Content("/Content/assets/js/stisla.js")></script>
+
+    <!-- JS Libraies -->
+    <!-- Template JS File -->
+    <script src=@Url.Content("/Content/assets/js/scripts.js")></script>
+    <script src=@Url.Content("/Content/assets/js/custom.js")></script>
+</body>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
